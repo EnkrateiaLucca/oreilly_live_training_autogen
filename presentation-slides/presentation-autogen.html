@@ -531,17 +531,19 @@
         # How Can We Effectively Perform Tasks with Agents?
 
         --
-
-        - [The Agent Loop](https://blog.langchain.dev/openais-bet-on-a-cognitive-architecture/#:~:text=sweep.dev%20is%20another%20great%20example.%20they%20wrote%20a%20blog%20over%20the%20summer%20describing%20their%20cognitive%20architecture%2C%20including%20a%20fantastic%20diagram.)
-          
+  
         <img style="width: 700px" src="../notebooks/assets-resources/agent_loop.png">
 
-        <p style="font-size: 14px; margin-top: 10px;">
+        - [The Agent Loop](https://blog.langchain.dev/openais-bet-on-a-cognitive-architecture/#:~:text=sweep.dev%20is%20another%20great%20example.%20they%20wrote%20a%20blog%20over%20the%20summer%20describing%20their%20cognitive%20architecture%2C%20including%20a%20fantastic%20diagram.)
+
+        <p style="font-size: 14px; margin-top: 20px; margin-left: 400px;">
            <a href="https://blog.langchain.dev/openais-bet-on-a-cognitive-architecture/#:~:text=sweep.dev%20is%20another%20great%20example.%20they%20wrote%20a%20blog%20over%20the%20summer%20describing%20their%20cognitive%20architecture%2C%20including%20a%20fantastic%20diagram.">OpenAI's Bet on a Cognitive Architecture</a>
         </p>
 
         ---
         # Good Agents Colaborate
+
+        <img style="width: 650px" src="../notebooks/assets-resources/agents-collab-loop.svg">
 
         --
 
@@ -551,7 +553,7 @@
 
         - AutoGen is a framework that facilitates the creation of agents that can easily collaborate through a 'conversation-centric' paradigm 
 
-        - ['OpenAI's Bet on a Cognitive Architecture'](https://blog.langchain.dev/openais-bet-on-a-cognitive-architecture/)
+
         ---
 
         # What is AutoGen?
@@ -567,7 +569,7 @@
 
         --
 
-          - __Customizable and conversable agents__: a generic design of agents 
+          - __Conversable agents__: a generic design of agents 
           that can leverage LLMs, human input, tools or a combination of these 
           to facilitate creating agents with different roles
         --
@@ -575,21 +577,36 @@
 
           - __Conversation Programming__: Programming paradigm centered around inter-agent conversations
         
-
-        ---
-        class: center, middle
-
-
-        # AutoGen Basics
-
-        ---
-
-        # Customizable Agents
-
         ---
 
         # Conversable Agents
 
+        --
+
+        - __Conversable__: Entity with a specific role that can pass messages to send and
+        receive information to and from other conversable agents, e.g., to start or continue a conversation.
+
+        --
+
+        - __Customizable__: Based on application-specific needs, each agent can be
+        configured to have a mix of basic back-end types to display complex behavior in multi-agent conversations.
+
+        --
+
+        - __Example__:
+
+          ```python
+          assistant = autogen.AssistantAgent(
+                        name="assistant",
+                        llm_config=llm_config,
+                        )
+          ```
+        
+        ---
+        # Conversation Programming
+        
+        ![](../notebooks/assets-resources/conversation_programming.png)
+        
 
         ---
         class: center, middle
