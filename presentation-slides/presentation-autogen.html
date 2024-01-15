@@ -200,14 +200,11 @@
             properly call external tools!</li>
 
         <img style="width: 300px "src="../notebooks/assets-resources/toolformer.png">
-
+        <!-- 
         <div style="display: flex; align-items: center;">
           <li>Tool = </li>
           <img src="../notebooks/assets-resources/python_icon.png" width="50" style="margin-left: 10px;">
-        </div>
-
-        
-
+        </div> -->
         ---
         # [ReACT](https://arxiv.org/pdf/2210.03629.pdf)
 
@@ -605,180 +602,251 @@
         ---
         # Conversation Programming
         
-        ![](../notebooks/assets-resources/conversation_programming.png)
+        <img style="width: 300px" src="../notebooks/assets-resources/conversation_programming.png" >
+
+        --
+
+        - Paradigm that blends computation and control flow within multi-agent conversations.
         
+        --
+
+        - __Computation__: Role-specific, conversation-centric actions.
+        
+        --
+
+        - __Control Flow__: Defined by conversation dynamics among agents.
+
+        --
+
+        - __Efficiency__: Streamlines AI development for various skill levels.
+  
+        ---
+        # Conversation Programming
+
+        --
+
+        - Merges programming and natural language control.
+
+        --
+
+        ## Design Patterns
+
+        --
+  
+        - __Unified Interfaces__: Standardized interfaces for agent interactions.
+
+        --
+
+        - __Auto-Reply__: auto-reply mechanism for continuous conversation flow.
+
+        --
+
+        ## Dynamic Conversations
+
+        --
+
+        - Supports static and dynamic flows.
+
+        --
+
+        - Customizable reply functions for adaptive conversations.
+  
+        ---
+        # Diverse Conversation Patterns
+
+        --
+
+        - Pattern = _How you set up the interaction_
+
+        --
+
+        <img style="width: 500px" src="../notebooks/assets-resources/conversational-patterns.png" >
+
+        - Adaptable to different agent autonomys and topologies.
 
         ---
         class: center, middle
 
-        # Practicing the Basics of AutoGen
-        <h2><span style="background-color: lightgreen">
-          AutoGen Demo
-        </span> </h2>
+        # Examples of Conversation Patterns
 
         ---
-        class: center, middle
 
-        # Break
-
-        ---
-        
-        # Building Agents with AutoGen
-
-        --
-
-        ## The Agent Loop 
-
-        --
-
-        <img src="../notebooks/assets-resources/agent_loop.svg" width="800">
-
-        ---
-        # Key LangChain Components for Agents
-
-        ## Schema
-
-        --
-
-        - LangChain provides many abstractions for ease of use
-
-        --
-
-        - **AgentAction**: Represents the action an agent should take.
-
-        --
-
-        - **AgentFinish**: Represents the final result to return to the user.
+        # 1. Student - Assistant - Expert
         
         --
-
-        - **Intermediate Steps**: Previous actions and outputs for the current agent run.
-
-        --
-
-        - **Agent**: Chain responsible for deciding the next step, powered by a language model.
-
-        ---
-
-        # Agent Inputs and Outputs
-
-        ## Agent Inputs
-
-        --
-        
-        - Key-value mapping.
-
-        --
-
-        - Required key: `intermediate_steps`.
-
-        --
-
-        ## Agent Outputs
-
-        --
-
-        - Next actions or final response (AgentActions or AgentFinish).
-
-        --
-
-        - Handled by the output parser.
-
-        ---
-        # AgentExecutor
-
-        ## The runtime for a LangChain agent
 
         ```python
-        next_action = agent.get_action(...)
-        while next_action != AgentFinish:
-            observation = run(next_action)
-            next_action = agent.get_action(..., next_action, observation)
-        return next_action
+        assistant = autogen.AssistantAgent(
+              name="assistant",
+              system_message="You are a helpful assistant.",
+              llm_config={
+                  "timeout": 600,
+                  "seed": 42,
+                  "config_list": config_list,
+              },
+          )
+
+        mathproxyagent = MathUserProxyAgent(
+              name="mathproxyagent",
+              human_input_mode="NEVER",
+              code_execution_config={"use_docker": False},
+          )
+
+        math_problem = (
+            "Find all $x$ that satisfy the inequality $(2x+10)(x+3)<(3x+9)(x+8)$. Express your answer in interval notation."
+        )
+        mathproxyagent.initiate_chat(assistant, problem=math_problem)
         ```
 
-        - Handles complexities like tool errors and logging.
+        ---
+
+        # 2. Retrieval Augmented Chat
+        
+        --
+
+        ```python
+          assistant = RetrieveAssistantAgent(
+              name="assistant",
+              system_message="You are a helpful assistant.",
+              llm_config={
+                  "timeout": 600,
+                  "cache_seed": 42,
+                  "config_list": config_list,
+              },
+          )
+          ragproxyagent = RetrieveUserProxyAgent(
+              name="ragproxyagent",
+              human_input_mode="NEVER",
+              max_consecutive_auto_reply=3,
+              retrieve_config={
+                  "task": "code",
+                  "docs_path": [
+                      "https://raw.githubusercontent.com/microsoft/FLAML/main/website/docs/Examples/Integrate%20-%20Spark.md",
+                      "https://raw.githubusercontent.com/microsoft/FLAML/main/website/docs/Research.md",
+                      os.path.join(os.path.abspath(""), "..", "website", "docs"),
+                  ],
+                  ...
+                  ...
+              code_execution_config=False,  # set to False if you don't want to execute the code
+          )
+          assistant.reset()
+          code_problem = "How can I use FLAML to perform a classification task and use spark to do parallel training. Train 30 seconds and force cancel jobs if time limit is reached."
+          ragproxyagent.initiate_chat(assistant, problem=code_problem, search_string="spark") 
+        ```
+
+        ---
+
+        # 3. Writer - Commander - Safeguard (multi-agent coding)
+
+        --
+
+        ```python
+          assistant = autogen.AssistantAgent(
+              name="assistant",
+              llm_config={
+                  "cache_seed": 42,  # seed for caching and reproducibility
+                  "config_list": config_list,  # a list of OpenAI API configurations
+                  "temperature": 0,  # temperature for sampling
+              },  # configuration for autogen's enhanced inference API which is compatible with OpenAI API
+          )
+          # create a UserProxyAgent instance named "user_proxy"
+          user_proxy = autogen.UserProxyAgent(
+              name="user_proxy",
+              human_input_mode="NEVER",
+              max_consecutive_auto_reply=10,
+              is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
+              code_execution_config={
+                  "work_dir": "coding",
+                  "use_docker": False,  # set to True or image name like "python:3" to use docker
+              },
+          )
+          # the assistant receives a message from the user_proxy, which contains the task description
+          user_proxy.initiate_chat(
+              assistant,
+              message="""What date is today? Compare the year-to-date gain for META and TESLA.""",
+          )
+        ```
+
+        ---
+
+        # 4. Dynamic Group Chat
+
+        --
+
+        ```python
+        llm_config = {"config_list": config_list_gpt4, "cache_seed": 42}
+        user_proxy = autogen.UserProxyAgent(
+            name="User_proxy",
+            system_message="A human admin.",
+            code_execution_config={"last_n_messages": 2, "work_dir": "groupchat"},
+            human_input_mode="TERMINATE",
+        )
+        coder = autogen.AssistantAgent(
+            name="Coder",
+            llm_config=llm_config,
+        )
+        pm = autogen.AssistantAgent(
+            name="Product_manager",
+            system_message="Creative in software product ideas.",
+            llm_config=llm_config,
+        )
+        groupchat = autogen.GroupChat(agents=[user_proxy, coder, pm], messages=[], max_round=12)
+        manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
+        user_proxy.initiate_chat(
+        manager, message="Find a latest paper about gpt-4 on arxiv and find its potential applications in software."
+        )
+        
+        ```
+
+        ---
+        # Teachable Agents
+
+        --
+
+        - Agents learn from interactions, enhancing responses over time.
+
+        --
+        
+        - Versatility in tasks: Code generation, summarizing, and more.
 
         ---
         class: center, middle
-
+        
+        # Recipe for Building AutoGen Agent Workflows
         <h2><span style="background-color: lightgreen">
-          LangChain Agents Demo
+          AutoGen Recipe Demo
         </span> </h2>
 
         ---
         class: center, middle
 
         # Break
-
-        ---
-
-        # Tools in LangChain
-
-        --
-
-        - Functions that an agent can invoke.
-
-        --
-
-        - Consists of:
-
-        --
-          - Input schema for the tool.
-
-        --
-
-          - Function to run.
-
-        --
-
-        - Important for building a working agent.
-        ---
-
-        # Toolkits
-
-        - Groups of 3-5 tools for specific objectives.
-
-        --
-
-        - Example: GitHub toolkit for interacting with GitHub.
-
-        --
-
-        - LangChain provides a wide set of toolkits.
-
-        ---
-        class: center, middle
-
-        # Let's Build Agents!
-
-        <h2><span style="background-color: lightgreen">
-          LangChain Agents Demo - Github Agent; Tutor Agent; Research Assistant
-        </span> </h2>
 
         ---
 
         # References
 
-        - [HuggingGPT](https://github.com/microsoft/JARVIS)
-        - [Gen Agents](https://arxiv.org/pdf/2304.03442.pdf)
-        - [WebGPT](https://www.semanticscholar.org/paper/WebGPT%3A-Browser-assisted-question-answering-with-Nakano-Hilton/2f3efe44083af91cef562c1a3451eee2f8601d22)
-        - [LangChain](https://python.langchain.com/docs/get_started/introduction)
+        - [AutoGen](https://microsoft.github.io/autogen/)
+        - [AutoGen Paper](https://arxiv.org/pdf/2308.08155.pdf)
         - [OpenAI](https://openai.com/)
         - [OpenAI Function Calling](https://platform.openai.com/docs/guides/function-calling)
+        - [Gen Agents](https://arxiv.org/pdf/2304.03442.pdf), 
         - [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT)
         - [GPT-Engineer](https://github.com/gpt-engineer-org/gpt-engineer)
         - [BabyAGI](https://github.com/yoheinakajima/babyagi)
         - [Karpathy on Agents](https://www.youtube.com/watch?v=fqVLjtvWgq8)
         - [ReACT Paper](https://arxiv.org/abs/2210.03629)
+        - [HuggingGPT](https://github.com/microsoft/JARVIS)
+        
 
         ---
 
         class: center, middle
 
         # Conclusion
-        ## Ready to Build Your Own Agents?        
+        ## Ready to Build Your Own Agents?
 
+        ---
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
@@ -787,5 +855,3 @@
     </script>
   </body>
 </html>
-
-
