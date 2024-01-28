@@ -74,31 +74,41 @@
 
         # Table of Contents
 
-        - __Agents as Thought + Action__
-        
-        --
-
-        - __Agents:__ __Definition & Tools__
+        __1. Agents as Thought + Action__
 
         --
 
-        - __Agents in 3 Complexity Levels__
+        __2. Defining Agents__
 
         --
 
-        - __OpenAI's Function API__
-
-        --
-        
-        - __AutoGen Framework__
+        __3. Agents in 3 Levels of Complexity__
 
         --
 
-        - __Building Agents with AutoGen__
+        __4. OpenAI's Function API__
 
         --
 
-        - __Lots of Demos! :)__
+        __5. AutoGen Framework__
+
+        --
+
+        __6. Design Patterns in AutoGen__
+
+        --
+
+        __7. Building Agents with AutoGen__
+
+        --
+
+        __8. Concluding Remarks__
+
+        --
+
+        __9. References__
+
+
 
         ---
 
@@ -366,11 +376,6 @@
         ---
         class: center, middle
 
-        # Q&A
-        
-        ---
-        class: center, middle
-
         # OpenAI's Function Calling API
         
         ---
@@ -504,6 +509,11 @@
           output = run_terminal_task()
 
         ```
+        
+        ---
+        class: center, middle
+
+        # Q&A
 
         ---
         class: center, middle
@@ -601,13 +611,20 @@
         
         ---
         # Conversation Programming
+
+        --
         
-        <img style="width: 300px" src="../notebooks/assets-resources/conversation_programming.png" >
+        <img style="width: 300px; margin-left: 30px" src="../notebooks/assets-resources/conversation_programming.png">
 
         --
 
-        - Paradigm that blends computation and control flow within multi-agent conversations.
+        - Paradigm that blends computation and control 
+        flow within multi-agent conversations.
         
+        --
+
+        - Merges programming and natural language control.
+
         --
 
         - __Computation__: Role-specific, conversation-centric actions.
@@ -621,15 +638,8 @@
         - __Efficiency__: Streamlines AI development for various skill levels.
   
         ---
-        # Conversation Programming
 
-        --
-
-        - Merges programming and natural language control.
-
-        --
-
-        ## Design Patterns
+        # Design Patterns
 
         --
   
@@ -660,9 +670,9 @@
 
         --
 
-        <img style="width: 500px" src="../notebooks/assets-resources/conversational-patterns.png" >
+        <img style="width: 600px" src="../notebooks/assets-resources/conversational-patterns.png" >
 
-        - Adaptable to different agent autonomys and topologies.
+        - Adaptable to different agent autonomies and topologies.
 
         ---
         class: center, middle
@@ -697,6 +707,15 @@
         )
         mathproxyagent.initiate_chat(assistant, problem=math_problem)
         ```
+
+        ---
+        class: center, middle
+
+
+        <h2><span style="background-color: lightgreen">
+          Autogen Demo (Student - Assistant - Expert) 
+        </span> </h2>
+
 
         ---
 
@@ -735,6 +754,14 @@
         ```
 
         ---
+        class: center, middle
+
+
+        <h2><span style="background-color: lightgreen">
+          Autogen Demo (Retrieval Augmented Chat) 
+        </span> </h2>
+
+        ---
 
         # 3. Writer - Commander - Safeguard (multi-agent coding)
 
@@ -768,6 +795,13 @@
         ```
 
         ---
+        class: center, middle
+
+        <h2><span style="background-color: lightgreen">
+          Autogen Demo (Writer - Commander - Safeguard) 
+        </span> </h2>
+
+        ---
 
         # 4. Dynamic Group Chat
 
@@ -799,28 +833,171 @@
         ```
 
         ---
-        # Teachable Agents
-
-        --
-
-        - Agents learn from interactions, enhancing responses over time.
-
-        --
-        
-        - Versatility in tasks: Code generation, summarizing, and more.
-
-        ---
         class: center, middle
-        
-        # Recipe for Building AutoGen Agent Workflows
+
         <h2><span style="background-color: lightgreen">
-          AutoGen Recipe Demo
+          Autogen Demo (Dynamic Group Chat) 
         </span> </h2>
 
         ---
         class: center, middle
 
-        # Break
+        # Break 10 minutes
+
+        ---
+        class: center, middle
+        
+        # Recipe for Building AutoGen Agent Workflows
+
+        ---
+
+        ## Step 1: Prepare Agent Configurations
+        
+          - Config path with model name & API key
+          - Default configuration for each agent
+
+          ```python
+          config_file_or_env = './OAI_CONFIG_LIST'  # modify path
+          default_llm_config = {
+              'temperature': 0
+          }
+          ```
+
+        ---
+
+        ## Step 2: Creating AgentBuilder Instance
+
+        - Create `AgentBuilder` instance
+          - Use configuration path & default config
+          - Specify builder & agent models
+        
+        ```python
+        from autogen.agentchat.contrib.agent_builder import AgentBuilder
+        builder = AgentBuilder(config_file_or_env=config_file_or_env, builder_model='gpt-4-1106-preview', agent_model='gpt-4-1106-preview')
+        ```
+
+        ---
+
+        ## Step 3: Specifying the Building Task
+
+        - Define building task with description & examples
+          - Helps build manager decide on agents
+          - Example Task: "Create a multi-agent system for task X"
+
+        ```python
+        building_task = "Find a paper on arxiv about artificial intelligence, 
+        and analyze its application in some domain. For example, find a latest 
+        paper about gpt-4 on arxiv and find its potential applications in 
+        software."
+        ```
+
+        ---
+
+        ## Step 4: Building Group Chat Agents
+
+        - Use `build()` method to generate agents
+        - Include a user proxy for tasks involving coding
+          - `agent_list, agent_configs = builder.build(building_task, default_llm_config, coding=True)`
+
+        ```python
+        agent_list, agent_configs = builder.build(building_task, default_llm_config, 
+        coding=True)
+        ```
+
+        ---
+
+        ## Step 5: Executing the Task
+
+        - Agents collaborate in a group chat to complete task
+        - Combine LLMs, human inputs, and tools
+        - Example: `start_task(execution_task, agent_list, llm_config)`
+
+        ```python
+        import autogen
+        def start_task(execution_task: str, agent_list: list, llm_config: dict):
+            config_list = autogen.config_list_from_json(config_file_or_env, filter_dict={"model": ["gpt-4-1106-preview"]})
+
+            group_chat = autogen.GroupChat(agents=agent_list, messages=[], max_round=12)
+            manager = autogen.GroupChatManager(
+                groupchat=group_chat, llm_config={"config_list": config_list, **llm_config}
+            )
+            agent_list[0].initiate_chat(manager, message=execution_task)
+
+        start_task(
+            execution_task="Find a recent paper about gpt-4 on arxiv and find its potential applications in software.",
+            agent_list=agent_list,
+            llm_config=default_llm_config
+        )
+        ```
+        source: [AutoGen Blog](https://microsoft.github.io/autogen/blog/2023/11/26/Agent-AutoBuild/)
+
+
+        ---
+
+        ## Step 6: Clearing Agents & Saving Configurations
+
+        - Clear agents post-task if next task differs
+        - Save information of built group chat agents
+        
+        ```python
+        builder.clear_all_agents(recycle_endpoint=True)
+        saved_path = builder.save()
+        ```
+        - Configurations will be saved in JSON format like such:
+        ```json
+        // FILENAME: save_config_TASK_MD5.json
+        {
+        "building_task": "Find a paper on arxiv about artificial intelligence, 
+        and analyze its application in some domain. For example, find a latest 
+        paper about gpt-4 on arxiv and find its potential applications in 
+        software." ,
+        "agent_configs": [
+            {
+                "name": "...",
+                .....
+            },
+            ...
+        ],
+        "manager_system_message": "...",
+        "code_execution_config": {...},
+        "default_llm_config": {...}
+        }
+        ```
+        ---
+        class: center, middle
+
+        <h2><span style="background-color: lightgreen">
+          Autogen Recipes - Notebook Demo 
+        </span> </h2>
+
+        ---
+        class: center, middle
+
+        # Break 5 minutes
+
+        ---
+        class: center, middle
+
+        # Building a Research Agent with AutoGen
+        <h2><span style="background-color: lightgreen">
+          Autogen Researcher - Notebook Demo 
+        </span> </h2>
+        
+
+        ---
+        class: center, middle
+
+        # Building a Personal Assistant Agent with AutoGen
+
+        <h2><span style="background-color: lightgreen">
+          Autogen Personal Assistant - Notebook Demo 
+        </span> </h2>
+
+        ---
+
+        class: center, middle
+
+        # Conclusion and Q&A
 
         ---
 
@@ -839,14 +1016,6 @@
         - [HuggingGPT](https://github.com/microsoft/JARVIS)
         
 
-        ---
-
-        class: center, middle
-
-        # Conclusion
-        ## Ready to Build Your Own Agents?
-
-        ---
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
