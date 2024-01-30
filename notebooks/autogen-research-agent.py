@@ -1,4 +1,5 @@
 # source: https://github.com/JayZeeDesign/research-agents-3.0/blob/main/app.py
+# pip install -r requirements.txt
 import os
 import requests
 from langchain.text_splitter import RecursiveCharacterTextSplitter
