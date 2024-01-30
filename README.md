@@ -53,3 +53,5 @@ deactivate
 ## To use this Environment with Jupyter Notebooks:
 
 ```python3 -m ipykernel install --user --name=oreilly-autogen```
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/1.0-ls-autogen-demo-building-our-first-agent.ipynb)
