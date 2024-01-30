@@ -96,4 +96,4 @@ Here are the notebooks available in the `notebooks/` folder:
 
 10. [Demo: Autogen Function Calling](notebooks/demo-autogen-function-calling.ipynb)
 
-    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Enkrate
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/demo-autogen-function-calling.ipynb)
