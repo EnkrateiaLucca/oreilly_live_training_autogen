@@ -1,10 +1,10 @@
 [
     {
         "model": "gpt-4",
-        "api_key": "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"
+        "api_key": "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"
     },
     {
         "model": "gpt-4-1106-preview",
-        "api_key": "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"
+        "api_key": "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"
     }
 ]
