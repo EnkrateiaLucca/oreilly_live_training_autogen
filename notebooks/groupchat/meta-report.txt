@@ -1,0 +1,20 @@
+1. Data Analysis:
+   - Start by understanding the problem statement and the data required to solve it.
+   - Collect the data from reliable sources.
+   - Clean and preprocess the data to make it suitable for analysis.
+   - Perform exploratory data analysis to understand the patterns and relationships in the data.
+   - Document your findings.
+
+2. Model Training:
+   - Choose the right model based on the problem statement and the data.
+   - Split the data into training and testing sets.
+   - Train the model using the training set and tune the hyperparameters.
+   - Evaluate the model using the testing set.
+   - Document the model's performance.
+
+3. Report Writing:
+   - Start with an introduction that explains the problem statement.
+   - Describe the data and the exploratory data analysis findings.
+   - Explain the model choice and the training process.
+   - Discuss the model's performance and any limitations.
+   - Conclude with the final thoughts and future work.

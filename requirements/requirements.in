@@ -1,0 +1,13 @@
+pyautogen
+jupyter
+ipykernel
+pypdf
+pydantic
+langchain
+langchain-openai
+openai
+chromadb
+arxiv
+lxml
+matplotlib
+sentence_transformers
