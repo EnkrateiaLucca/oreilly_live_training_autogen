@@ -25,6 +25,7 @@ argon2-cffi-bindings==21.2.0
 arrow==1.3.0
     # via isoduration
 arxiv==2.1.0
+    # via autogenstudio
 asgiref==3.8.1
     # via opentelemetry-instrumentation-asgi
 asttokens==2.4.1
@@ -36,6 +37,7 @@ attrs==23.2.0
     #   aiohttp
     #   jsonschema
     #   referencing
+autogenstudio==0.0.56
 babel==2.14.0
     # via jupyterlab-server
 backoff==2.2.1
@@ -101,7 +103,9 @@ docker==7.0.0
 executing==2.0.1
     # via stack-data
 fastapi==0.110.0
-    # via chromadb
+    # via
+    #   autogenstudio
+    #   chromadb
 fastjsonschema==2.19.1
     # via nbformat
 feedparser==6.0.10
@@ -322,6 +326,7 @@ notebook-shim==0.2.4
     #   notebook
 numpy==1.26.4
     # via
+    #   autogenstudio
     #   chroma-hnswlib
     #   chromadb
     #   contourpy
@@ -449,10 +454,12 @@ pyasn1==0.5.1
 pyasn1-modules==0.3.0
     # via google-auth
 pyautogen==0.2.20
+    # via autogenstudio
 pycparser==2.21
     # via cffi
 pydantic==2.6.4
     # via
+    #   autogenstudio
     #   chromadb
     #   fastapi
     #   langchain
@@ -484,6 +491,7 @@ python-dateutil==2.9.0.post0
     #   posthog
 python-dotenv==1.0.1
     # via
+    #   autogenstudio
     #   pyautogen
     #   uvicorn
 python-json-logger==2.0.7
@@ -654,7 +662,9 @@ traitlets==5.14.2
 transformers==4.39.1
     # via sentence-transformers
 typer==0.10.0
-    # via chromadb
+    # via
+    #   autogenstudio
+    #   chromadb
 types-python-dateutil==2.9.0.20240316
     # via arrow
 typing-extensions==4.10.0
@@ -680,7 +690,9 @@ urllib3==2.2.1
     #   kubernetes
     #   requests
 uvicorn==0.29.0
-    # via chromadb
+    # via
+    #   autogenstudio
+    #   chromadb
 uvloop==0.19.0
     # via uvicorn
 watchfiles==0.21.0
@@ -698,7 +710,9 @@ websocket-client==1.7.0
     #   jupyter-server
     #   kubernetes
 websockets==12.0
-    # via uvicorn
+    # via
+    #   autogenstudio
+    #   uvicorn
 widgetsnbextension==4.0.10
     # via ipywidgets
 wrapt==1.16.0
