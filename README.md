@@ -5,8 +5,8 @@
 **Conda**
 
 - Install [anaconda](https://www.anaconda.com/download)
-- This repo was tested on a Mac with python=3.10.
-- Create an environment: `conda create -n oreilly-autogen python=3.10`
+- This repo was tested on a Mac with python=3.11
+- Create an environment: `conda create -n oreilly-autogen python=3.11`
 - Activate your environment with: `conda activate oreilly-autogen`
 - Install requirements with: `pip install -r requirements.txt`
 - Setup your openai [API key](https://platform.openai.com/)
@@ -15,7 +15,7 @@
 
 
 1. **Create a Virtual Environment:**
-    Navigate to your project directory. Make sure you hvae python3.10 installed! 
+    Navigate to your project directory. Make sure you hvae python3.11 installed! 
     If using Python 3's built-in `venv`:
     ```bash
     python -m venv oreilly_env

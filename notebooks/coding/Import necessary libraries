@@ -1,0 +1,29 @@
+# Import necessary libraries
+import pandas as pd
+import pandas_datareader.data as web
+import matplotlib.pyplot as plt
+from datetime import datetime
+
+# Set the current year and today's date
+current_year = datetime.now().year
+start_date = f'{current.year}-01-01'
+end_date = datetime.now().strftime('%Y-%m-%d')
+
+# Fetch data for NVDA and TSLA
+nvda_data = web.DataReader('NVDA', 'yahoo', start_date, end_date)
+tsla_data = web.DataReader('TSLA', 'yahoo', start_date, end_date)
+
+# Calculate daily price changes from the beginning of the year
+nvda_change = nvda_data['Close'] / nvda_data['Close'].iloc[0] - 1
+tsla_change = tsla_data['Close'] / tsla_data['Close'].iloc[0] - 1
+
+# Plot the changes
+plt.figure(figsize=(10, 5))
+plt.plot(nvda_change, label='NVDA YTD Change')
+plt.plot(tsla_change, label='TSLA YTD Change')
+plt.legend()
+plt.title('YTD Stock Price Change of NVDA and TSLA')
+plt.xlabel('Date')
+plt.ylabel('Percentage Change')
+plt.grid(True)
+plt.show()

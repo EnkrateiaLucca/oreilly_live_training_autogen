@@ -26,6 +26,4 @@ plt.title('NVDA and TESLA stock price change YTD')
 plt.xlabel('Date')
 plt.ylabel('Price')
 plt.grid()
-
-# Save the figure as a .png image
-plt.savefig('stock_price_change_ytd.png')
+plt.show()

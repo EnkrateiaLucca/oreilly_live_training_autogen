@@ -1,6 +1,6 @@
-ipykernel
 pyautogen
 autogenstudio
+ipykernel
 pypdf
 pydantic
 langchain
@@ -11,4 +11,3 @@ arxiv
 lxml
 matplotlib
 sentence_transformers
-pandas
