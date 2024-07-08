@@ -12,3 +12,4 @@ lxml
 matplotlib
 sentence_transformers
 pandas
+yfinance

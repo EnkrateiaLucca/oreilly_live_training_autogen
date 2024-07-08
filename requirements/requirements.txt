@@ -36,6 +36,8 @@ backoff==2.2.1
     # via posthog
 bcrypt==4.1.3
     # via chromadb
+beautifulsoup4==4.12.3
+    # via yfinance
 build==1.2.1
     # via chromadb
 cachetools==5.3.3
@@ -105,6 +107,8 @@ flatbuffers==24.3.25
     # via onnxruntime
 fonttools==4.53.0
     # via matplotlib
+frozendict==2.4.4
+    # via yfinance
 frozenlist==1.4.1
     # via
     #   aiohttp
@@ -187,6 +191,8 @@ h11==0.14.0
     # via
     #   httpcore
     #   uvicorn
+html5lib==1.1
+    # via yfinance
 httpcore==1.0.5
     # via httpx
 httplib2==0.22.0
@@ -262,7 +268,9 @@ langsmith==0.1.83
 loguru==0.7.2
     # via autogenstudio
 lxml==5.2.2
-    # via -r ./requirements/requirements.in
+    # via
+    #   -r ./requirements/requirements.in
+    #   yfinance
 mako==1.3.5
     # via alembic
 markdown-it-py==3.0.0
@@ -289,6 +297,8 @@ multidict==6.0.5
     # via
     #   aiohttp
     #   yarl
+multitasking==0.0.11
+    # via yfinance
 nest-asyncio==1.6.0
     # via ipykernel
 networkx==3.3
@@ -310,6 +320,7 @@ numpy==1.26.4
     #   sentence-transformers
     #   shapely
     #   transformers
+    #   yfinance
 oauthlib==3.2.2
     # via
     #   kubernetes
@@ -379,9 +390,13 @@ packaging==24.1
     #   pyautogen
     #   transformers
 pandas==2.2.2
-    # via -r ./requirements/requirements.in
+    # via
+    #   -r ./requirements/requirements.in
+    #   yfinance
 parso==0.8.4
     # via jedi
+peewee==3.17.6
+    # via yfinance
 pexpect==4.9.0
     # via ipython
 pillow==10.4.0
@@ -390,7 +405,9 @@ pillow==10.4.0
     #   pyautogen
     #   sentence-transformers
 platformdirs==4.2.2
-    # via jupyter-core
+    # via
+    #   jupyter-core
+    #   yfinance
 posthog==3.5.0
     # via chromadb
 prompt-toolkit==3.0.47
@@ -478,7 +495,9 @@ python-dotenv==1.0.1
 python-multipart==0.0.9
     # via fastapi
 pytz==2024.1
-    # via pandas
+    # via
+    #   pandas
+    #   yfinance
 pyyaml==6.0.1
     # via
     #   chromadb
@@ -512,6 +531,7 @@ requests==2.32.3
     #   requests-oauthlib
     #   tiktoken
     #   transformers
+    #   yfinance
 requests-oauthlib==2.0.0
     # via kubernetes
 rich==13.7.1
@@ -537,6 +557,7 @@ shellingham==1.5.4
 six==1.16.0
     # via
     #   asttokens
+    #   html5lib
     #   kubernetes
     #   posthog
     #   python-dateutil
@@ -545,6 +566,8 @@ sniffio==1.3.1
     #   anyio
     #   httpx
     #   openai
+soupsieve==2.5
+    # via beautifulsoup4
 sqlalchemy==2.0.31
     # via
     #   alembic
@@ -644,6 +667,8 @@ watchfiles==0.22.0
     # via uvicorn
 wcwidth==0.2.13
     # via prompt-toolkit
+webencodings==0.5.1
+    # via html5lib
 websocket-client==1.8.0
     # via kubernetes
 websockets==12.0
@@ -656,6 +681,8 @@ wrapt==1.16.0
     #   opentelemetry-instrumentation
 yarl==1.9.4
     # via aiohttp
+yfinance==0.2.40
+    # via -r ./requirements/requirements.in
 zipp==3.19.2
     # via importlib-metadata
 
