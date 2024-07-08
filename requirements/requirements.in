@@ -1,4 +1,6 @@
 ipykernel
+jupyter
+ipywidgets
 pyautogen
 autogenstudio
 pypdf
