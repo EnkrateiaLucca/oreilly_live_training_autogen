@@ -108,50 +108,22 @@
 
         __9. References__
 
-
         ---
 
         # Thought + Action
 
         --
 
-        - How do we do stuff?
-
-        ---
-
-        # Thought + Action
-
         - How do we do stuff? We __think__ and we __act__
-        
+
         --
 
         - Example: Decision-making process for attending a live-training
 
         --
 
-        - __Thought__: "I want to learn about agents"
+        <img style="width: 400px" src="../notebooks/assets-resources/thought_action.png">
         
-        --
-        
-        - __Action__: "Go to the internet and research cool 
-        platforms where I can learn about agents"
-        
-        --
-
-        - __Thought__: "O'Reilly has some awesome courses and live-trainings"
-        
-        --
-        
-        - __Action__: "Look up O'Reilly courses"
-        
-        --
-        
-        - __Thought__: "Live-trainings by instructor Lucas are awesome"
-        
-        --
-        
-        - __Action__: "Schedule live-training about agents with instructor Lucas Soares"
-
         ---
         class: center, middle
 
@@ -170,31 +142,19 @@
 
         ---
 
-        # What is an Agent?
-
-        --
-
-        ## LLM
-
-        ---
-
-        # What is an Agent?
-
-
-        ## LLM + Tools
-
-        --
-
-        <div style="display: flex; align-items: center;">
-          <h4>LLM</h4><p> = predicts next word/sentence</p>
-          <img src="../notebooks/assets-resources/llm_predicts_pancakes.png" width="300" style="margin-left:100px">
-        </div>
-
-        --
-
-        <div style="display: flex; align-items: center;">
-          <h4>Tool</h4><p> = perform actions in the real-world</p>
-          <img src="../notebooks/assets-resources/pancake_maker.png" width="300" style="margin-left: 50px;">
+        # What is an Agent? (LLM + Tool)
+        
+        <div style="display: flex; justify-content: space-around; margin-top: 2em;">
+          <div style="text-align: center; width: 45%;">
+            <h3 style="color: #0a0b0b;">LLM</h3>
+            <p>Predicts next word/sentence</p>
+            <img src="../notebooks/assets-resources/llm_predicts_pancakes.png" alt="LLM predicts pancakes" style="width: 100%; max-width: 300px; height: auto; margin-top: 1em;">
+          </div>
+          <div style="text-align: center; width: 45%;">
+            <h3 style="color: #0a0b0b;">Tool</h3>
+            <p>Performs actions in the real-world</p>
+            <img src="../notebooks/assets-resources/pancake_maker.png" alt="Pancake maker" style="width: 100%; max-width: 300px; height: auto; margin-top: 1em;">
+          </div>
         </div>
 
 
@@ -202,7 +162,7 @@
         
         # LLMs can use tools!
 
-        - ['Toolformer'](https://arxiv.org/pdf/2302.04761.pdf)
+        - [Toolformer](https://arxiv.org/pdf/2302.04761.pdf)
 
         --
 
@@ -232,10 +192,12 @@
         - [A Survey on Large Language Model based
         Autonomous Agents](https://arxiv.org/pdf/2308.11432.pdf)  
 
-        <img style="width: 600px" src="../notebooks/assets-resources/agents_growth_trends.png">
+        
+
+        <img style="width: 800px" src="../notebooks/assets-resources/agents_growth_trends.png">
 
         <p style="font-size: 14px; margin-top: 10px;">
-          <sup>[3]</sup> <a href="https://arxiv.org/pdf/2308.11432.pdf" >(Wang et al. 2023)</a>
+          <sup>[3]</sup> <a href="https://arxiv.org/pdf/2308.11432.pdf" >(Wang et al. 2024)</a>
 
         ---
         # Popular Agent Implementations
@@ -298,83 +260,11 @@
 
         ---
 
-        # Level 1: LLM + functions inside the prompt
+        # Level 1: LLM + functions inside the prompt 
 
-
-        ```python
-        from openai import OpenAI
-        client = OpenAI()
-        
-        def get_response(prompt_question, model="gpt-3.5-turbo-16k"):
-            response = client.chat.completions.create(
-                model=model,
-                messages=[{"role": "system", "content": "You are a helpful research and programming assistant"},
-                        {"role": "user", "content": prompt_question}]
-            )
-            
-            return response.choices[0].message.content
-
-        def create_directory(directory_name):
-            subprocess.run(["mkdir", directory_name])
-
-        def create_file(file_name):
-            subprocess.run(["touch", file_name])
-
-        def list_files():
-            subprocess.run(["ls"])
-        ```
-
-        ---
-
-        # Level 1: LLM + functions inside the prompt
-
-        ```python
-
-          task_description = "Create a folder called 'lucas-the-agent-master'. Inside that folder, create a file called 'the-10-master-rules.md"
-          output = get_response(f"""Given this task: {task_description}, \n
-                                  Consider you have access to the following functions:
-                                  
-          def create_directory(directory_name):
-              '''Function that creates a directory given a directory name.'''
-              subprocess.run(["mkdir", directory_name])
-          
-          def create_file(file_name):
-              '''Function that creates a file given a file name.'''
-              subprocess.run(["touch", file_name])
-          
-          def list_files():
-            '''Function that lists all files in the current directory.'''
-              subprocess.run(["ls"])
-          
-          Your output should be the first function to be executed to complete the task containing the necessary arguments.
-          The OUTPUT SHOULD ONLY BE THE PYTHON FUNCTION CALL and NOTHING ELSE.
-          """)
-          
-          Markdown(output)
-
-          # Output:
-          # create_directory('lucas-the-agent-master')
-        ```
-
-        ---
-
-        # Level 1: LLM + functions inside the prompt
-
-        -  Now, all we need is to find a way to execute this function. 
-
-        --
-
-        - We can use Python's built in `exec` method for that:
-        
-        --
-        ```python
-        # Output:
-        # create_directory('lucas-the-agent-master')
-        exec(output)
-        !ls -d */ | grep lucas
-        # Output:
-        # lucas-the-agent-master/
-        ```
+        <div style="display: flex; justify-content: center;">
+          <img style="width: 600px" src="../notebooks/assets-resources/level1-agents.png" alt="LLM Level 1 Agents">
+        </div>
         
         ---
 
@@ -401,44 +291,46 @@
         ---
         class: center, middle
 
-        # OpenAI Function Calling
+        # Level 2: OpenAI Function Calling
 
         ---
 
-        # OpenAI Function Calling
+        # Level 2: OpenAI Function Calling
 
 
         - Standard way to connect models to outside tools.
 
         --
 
-        Process Simplified:
+        <div style="display: flex; justify-content: center;">
+          <img src="../notebooks/assets-resources/openai-function-calling.png" style="width: 80%;">
+        </div>
 
         --
-
-        - __Initial Query___: Start by sending a query to the model.
-
-        --
-        
-        - __Model Response__: The model may request additional information, packaged in a straightforward format.
-
-        --
-        
-        - __Action__: Execute the necessary actions based on the model's request.
-
-        --
-        
-        - __Feedback Loop__: Share the outcomes with the model for a cohesive summary.
-
-        --
-        
-        - __Takeaway__: This streamlined interaction sets the stage for the more advanced capabilities provided by the AutoGen framework, focusing on creating efficient, self-improving agents that can communicate with each other.
-
-        --
-        
 
         <p style="font-size: 14px; margin-top: 10px;">
           <sup>[8]</sup><a href="https://platform.openai.com/docs/guides/function-calling">OpenAI Function Calling Docs</a>
+        </p>
+
+        ???
+        - __Takeaway__: This streamlined interaction sets the stage for the more advanced capabilities provided by the AutoGen framework, focusing on creating efficient, self-improving agents that can communicate with each other.
+
+        ---
+        class: center, middle
+
+        # Level 3: Autonomous Agents
+
+        ---
+        # Level 3: Autonomous Agents
+
+        --
+  
+        <img style="width: 700px" src="../notebooks/assets-resources/agent_loop.png">
+
+        - [The Agent Loop](https://blog.langchain.dev/openais-bet-on-a-cognitive-architecture/#:~:text=sweep.dev%20is%20another%20great%20example.%20they%20wrote%20a%20blog%20over%20the%20summer%20describing%20their%20cognitive%20architecture%2C%20including%20a%20fantastic%20diagram.)
+
+        <p style="font-size: 14px; margin-top: 20px; margin-left: 400px;">
+           <a href="https://blog.langchain.dev/openais-bet-on-a-cognitive-architecture/#:~:text=sweep.dev%20is%20another%20great%20example.%20they%20wrote%20a%20blog%20over%20the%20summer%20describing%20their%20cognitive%20architecture%2C%20including%20a%20fantastic%20diagram.">OpenAI's Bet on a Cognitive Architecture</a>
         </p>
                 
         ---
@@ -485,7 +377,7 @@
 
         ---
 
-        # What is AutoGen?
+        # What is AutoGen? (Level 4?)
 
         --
 
@@ -532,11 +424,25 @@
           ```
         
         ---
+
+        <div style="display: flex; justify-content: center;">
+          <img src="../notebooks/assets-resources/autogen-code-diagram.png" style="width: 120%;">
+        </div>
+
+        <p style="font-size: 14px; margin-top: 20px;">
+          <a href='https://microsoft.github.io/autogen/docs/tutorial/introduction'>Autogen Docs</a>
+        </p>
+
+        
+
+        ---
         # Conversation Programming
 
         --
         
-        <img style="width: 300px; margin-left: 30px" src="../notebooks/assets-resources/conversation_programming.png">
+        <div style="display: flex; justify-content: center;">
+          <img style="width: 300px; margin-left: 30px" src="../notebooks/assets-resources/conversation_programming.png">
+        </div>
 
         --
 
@@ -592,6 +498,37 @@
           </span>
         </h2>
   
+        ---
+        # Lucas I want an easier way to get Started!
+
+        --
+        - __AutoGenStudio__ is a tool that simplifies the process of building and interacting with autogen agents.
+
+        <div style="display: flex; justify-content: center;">
+          <img style="width: 550px" src="../notebooks/assets-resources/autogen-studio.png" alt="">
+        </div>
+
+        <p style="font-size: 14px; margin-top: 50px;">
+          <a href='https://microsoft.github.io/autogen/blog/2023/12/01/AutoGenStudio/'>Autogen Studio Docs</a>
+        </p>
+
+        ---
+        class: center, middle
+
+        <h2>
+          <span style="background-color: lightgreen">
+          Autogen Demo - Building a Research Assistant
+        </span>
+        </h2>
+
+        
+
+
+
+
+
+
+
         ---
         # Diverse Conversation Patterns
 
@@ -901,6 +838,16 @@
         <h2><span style="background-color: lightgreen">
           Autogen Demo - Agent Builder Recipe 
         </span> </h2>
+
+        ---
+        class: center, middle
+
+        <h2>
+          <span style="background-color: lightgreen">
+          Autogen Demo - Inserting AutogenStudio into the Workflow 
+          </span>
+        </h2>
+
 
         ---
         class: center, middle
