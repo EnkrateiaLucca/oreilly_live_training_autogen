@@ -13,3 +13,4 @@ matplotlib
 sentence_transformers
 pandas
 yfinance
+markdownify
