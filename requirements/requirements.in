@@ -1,7 +1,8 @@
 ipykernel
 jupyter
 ipywidgets
-pyautogen
+autogen
+ollama
 autogenstudio
 pypdf
 pydantic
