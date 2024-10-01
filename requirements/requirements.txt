@@ -4,16 +4,21 @@
 #
 #    pip-compile --output-file=./requirements/requirements.txt ./requirements/requirements.in
 #
-aiohttp==3.9.5
+aiohappyeyeballs==2.4.3
+    # via aiohttp
+aiohttp==3.10.8
     # via langchain
 aiosignal==1.3.1
     # via aiohttp
-alembic==1.13.2
+alembic==1.13.3
     # via autogenstudio
 annotated-types==0.7.0
     # via pydantic
-anyio==4.4.0
+anthropic==0.34.2
+    # via pyautogen
+anyio==4.6.0
     # via
+    #   anthropic
     #   httpx
     #   jupyter-server
     #   openai
@@ -37,20 +42,20 @@ asttokens==2.4.1
     # via stack-data
 async-lru==2.0.4
     # via jupyterlab
-attrs==23.2.0
+attrs==24.2.0
     # via
     #   aiohttp
     #   jsonschema
     #   referencing
 autogen==0.3.0
     # via -r ./requirements/requirements.in
-autogenstudio==0.1.3
+autogenstudio==0.1.5
     # via -r ./requirements/requirements.in
-babel==2.15.0
+babel==2.16.0
     # via jupyterlab-server
 backoff==2.2.1
     # via posthog
-bcrypt==4.1.3
+bcrypt==4.2.0
     # via chromadb
 beautifulsoup4==4.12.3
     # via
@@ -59,23 +64,23 @@ beautifulsoup4==4.12.3
     #   yfinance
 bleach==6.1.0
     # via nbconvert
-build==1.2.1
+build==1.2.2
     # via chromadb
-cachetools==5.3.3
+cachetools==5.5.0
     # via google-auth
-certifi==2024.7.4
+certifi==2024.8.30
     # via
     #   httpcore
     #   httpx
     #   kubernetes
     #   requests
-cffi==1.16.0
+cffi==1.17.1
     # via argon2-cffi-bindings
 charset-normalizer==3.3.2
     # via requests
-chroma-hnswlib==0.7.3
+chroma-hnswlib==0.7.6
     # via chromadb
-chromadb==0.5.3
+chromadb==0.5.11
     # via -r ./requirements/requirements.in
 click==8.1.7
     # via
@@ -87,11 +92,11 @@ comm==0.2.2
     # via
     #   ipykernel
     #   ipywidgets
-contourpy==1.2.1
+contourpy==1.3.0
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
-debugpy==1.8.2
+debugpy==1.8.6
     # via ipykernel
 decorator==5.1.1
     # via ipython
@@ -101,46 +106,47 @@ deprecated==1.2.14
     # via
     #   opentelemetry-api
     #   opentelemetry-exporter-otlp-proto-grpc
+    #   opentelemetry-semantic-conventions
 diskcache==5.6.3
     # via
     #   autogen
     #   pyautogen
 distro==1.9.0
-    # via openai
-dnspython==2.6.1
-    # via email-validator
+    # via
+    #   anthropic
+    #   openai
 docker==7.1.0
     # via
     #   autogen
     #   pyautogen
 docstring-parser==0.16
     # via google-cloud-aiplatform
-email-validator==2.2.0
-    # via fastapi
-executing==2.0.1
+durationpy==0.8
+    # via kubernetes
+eval-type-backport==0.2.0
+    # via mistralai
+executing==2.1.0
     # via stack-data
-fastapi==0.111.0
+fastapi==0.115.0
     # via
     #   autogenstudio
     #   chromadb
-fastapi-cli==0.0.4
-    # via fastapi
 fastjsonschema==2.20.0
     # via nbformat
 feedparser==6.0.11
     # via arxiv
-filelock==3.15.4
+filelock==3.16.1
     # via
     #   huggingface-hub
     #   torch
     #   transformers
-flaml==2.1.2
+flaml==2.3.1
     # via
     #   autogen
     #   pyautogen
 flatbuffers==24.3.25
     # via onnxruntime
-fonttools==4.53.0
+fonttools==4.54.1
     # via matplotlib
 fqdn==1.5.1
     # via jsonschema
@@ -150,13 +156,13 @@ frozenlist==1.4.1
     # via
     #   aiohttp
     #   aiosignal
-fsspec==2024.6.1
+fsspec==2024.9.0
     # via
     #   huggingface-hub
     #   torch
-google-ai-generativelanguage==0.6.6
+google-ai-generativelanguage==0.6.10
     # via google-generativeai
-google-api-core[grpc]==2.19.1
+google-api-core[grpc]==2.20.0
     # via
     #   google-ai-generativelanguage
     #   google-api-python-client
@@ -166,9 +172,9 @@ google-api-core[grpc]==2.19.1
     #   google-cloud-resource-manager
     #   google-cloud-storage
     #   google-generativeai
-google-api-python-client==2.136.0
+google-api-python-client==2.147.0
     # via google-generativeai
-google-auth==2.31.0
+google-auth==2.35.0
     # via
     #   google-ai-generativelanguage
     #   google-api-core
@@ -184,29 +190,29 @@ google-auth==2.31.0
     #   pyautogen
 google-auth-httplib2==0.2.0
     # via google-api-python-client
-google-cloud-aiplatform==1.58.0
+google-cloud-aiplatform==1.68.0
     # via pyautogen
-google-cloud-bigquery==3.25.0
+google-cloud-bigquery==3.26.0
     # via google-cloud-aiplatform
 google-cloud-core==2.4.1
     # via
     #   google-cloud-bigquery
     #   google-cloud-storage
-google-cloud-resource-manager==1.12.3
+google-cloud-resource-manager==1.12.5
     # via google-cloud-aiplatform
-google-cloud-storage==2.17.0
+google-cloud-storage==2.18.2
     # via google-cloud-aiplatform
-google-crc32c==1.5.0
+google-crc32c==1.6.0
     # via
     #   google-cloud-storage
     #   google-resumable-media
-google-generativeai==0.7.1
+google-generativeai==0.8.2
     # via pyautogen
-google-resumable-media==2.7.1
+google-resumable-media==2.7.2
     # via
     #   google-cloud-bigquery
     #   google-cloud-storage
-googleapis-common-protos[grpc]==1.63.2
+googleapis-common-protos[grpc]==1.65.0
     # via
     #   google-api-core
     #   grpc-google-iam-v1
@@ -214,7 +220,7 @@ googleapis-common-protos[grpc]==1.63.2
     #   opentelemetry-exporter-otlp-proto-grpc
 grpc-google-iam-v1==0.13.1
     # via google-cloud-resource-manager
-grpcio==1.64.1
+grpcio==1.66.2
     # via
     #   chromadb
     #   google-api-core
@@ -222,7 +228,7 @@ grpcio==1.64.1
     #   grpc-google-iam-v1
     #   grpcio-status
     #   opentelemetry-exporter-otlp-proto-grpc
-grpcio-status==1.62.2
+grpcio-status==1.62.3
     # via google-api-core
 h11==0.14.0
     # via
@@ -238,31 +244,32 @@ httplib2==0.22.0
     #   google-auth-httplib2
 httptools==0.6.1
     # via uvicorn
-httpx==0.27.0
+httpx==0.27.2
     # via
+    #   anthropic
     #   chromadb
-    #   fastapi
     #   jupyterlab
+    #   langsmith
+    #   mistralai
     #   ollama
     #   openai
-huggingface-hub==0.23.4
+huggingface-hub==0.25.1
     # via
     #   sentence-transformers
     #   tokenizers
     #   transformers
 humanfriendly==10.0
     # via coloredlogs
-idna==3.7
+idna==3.10
     # via
     #   anyio
-    #   email-validator
     #   httpx
     #   jsonschema
     #   requests
     #   yarl
-importlib-metadata==7.1.0
+importlib-metadata==8.4.0
     # via opentelemetry-api
-importlib-resources==6.4.0
+importlib-resources==6.4.5
     # via chromadb
 ipykernel==6.29.5
     # via
@@ -270,13 +277,12 @@ ipykernel==6.29.5
     #   jupyter
     #   jupyter-console
     #   jupyterlab
-    #   qtconsole
-ipython==8.26.0
+ipython==8.27.0
     # via
     #   ipykernel
     #   ipywidgets
     #   jupyter-console
-ipywidgets==8.1.3
+ipywidgets==8.1.5
     # via
     #   -r ./requirements/requirements.in
     #   jupyter
@@ -286,38 +292,42 @@ jedi==0.19.1
     # via ipython
 jinja2==3.1.4
     # via
-    #   fastapi
     #   jupyter-server
     #   jupyterlab
     #   jupyterlab-server
     #   nbconvert
     #   torch
+jiter==0.5.0
+    # via
+    #   anthropic
+    #   openai
 joblib==1.4.2
     # via scikit-learn
 json5==0.9.25
     # via jupyterlab-server
 jsonpatch==1.33
     # via langchain-core
+jsonpath-python==1.0.6
+    # via mistralai
 jsonpointer==3.0.0
     # via
     #   jsonpatch
     #   jsonschema
-jsonschema[format-nongpl]==4.22.0
+jsonschema[format-nongpl]==4.23.0
     # via
     #   jupyter-events
     #   jupyterlab-server
     #   nbformat
 jsonschema-specifications==2023.12.1
     # via jsonschema
-jupyter==1.0.0
+jupyter==1.1.1
     # via -r ./requirements/requirements.in
-jupyter-client==8.6.2
+jupyter-client==8.6.3
     # via
     #   ipykernel
     #   jupyter-console
     #   jupyter-server
     #   nbclient
-    #   qtconsole
 jupyter-console==6.6.3
     # via jupyter
 jupyter-core==5.7.2
@@ -330,12 +340,11 @@ jupyter-core==5.7.2
     #   nbclient
     #   nbconvert
     #   nbformat
-    #   qtconsole
 jupyter-events==0.10.0
     # via jupyter-server
 jupyter-lsp==2.2.5
     # via jupyterlab
-jupyter-server==2.14.1
+jupyter-server==2.14.2
     # via
     #   jupyter-lsp
     #   jupyterlab
@@ -344,38 +353,40 @@ jupyter-server==2.14.1
     #   notebook-shim
 jupyter-server-terminals==0.5.3
     # via jupyter-server
-jupyterlab==4.2.3
-    # via notebook
+jupyterlab==4.2.5
+    # via
+    #   jupyter
+    #   notebook
 jupyterlab-pygments==0.3.0
     # via nbconvert
-jupyterlab-server==2.27.2
+jupyterlab-server==2.27.3
     # via
     #   jupyterlab
     #   notebook
-jupyterlab-widgets==3.0.11
+jupyterlab-widgets==3.0.13
     # via ipywidgets
-kiwisolver==1.4.5
+kiwisolver==1.4.7
     # via matplotlib
-kubernetes==30.1.0
+kubernetes==31.0.0
     # via chromadb
-langchain==0.2.6
+langchain==0.3.1
     # via -r ./requirements/requirements.in
-langchain-core==0.2.11
+langchain-core==0.3.7
     # via
     #   langchain
     #   langchain-openai
     #   langchain-text-splitters
-langchain-openai==0.1.14
+langchain-openai==0.2.1
     # via -r ./requirements/requirements.in
-langchain-text-splitters==0.2.2
+langchain-text-splitters==0.3.0
     # via langchain
-langsmith==0.1.83
+langsmith==0.1.129
     # via
     #   langchain
     #   langchain-core
 loguru==0.7.2
     # via autogenstudio
-lxml==5.2.2
+lxml==5.3.0
     # via
     #   -r ./requirements/requirements.in
     #   yfinance
@@ -383,14 +394,14 @@ mako==1.3.5
     # via alembic
 markdown-it-py==3.0.0
     # via rich
-markdownify==0.12.1
+markdownify==0.13.1
     # via -r ./requirements/requirements.in
 markupsafe==2.1.5
     # via
     #   jinja2
     #   mako
     #   nbconvert
-matplotlib==3.9.1
+matplotlib==3.9.2
     # via -r ./requirements/requirements.in
 matplotlib-inline==0.1.7
     # via
@@ -398,20 +409,24 @@ matplotlib-inline==0.1.7
     #   ipython
 mdurl==0.1.2
     # via markdown-it-py
+mistralai==1.1.0
+    # via pyautogen
 mistune==3.0.2
     # via nbconvert
-mmh3==4.1.0
+mmh3==5.0.1
     # via chromadb
 monotonic==1.6
     # via posthog
 mpmath==1.3.0
     # via sympy
-multidict==6.0.5
+multidict==6.1.0
     # via
     #   aiohttp
     #   yarl
 multitasking==0.0.11
     # via yfinance
+mypy-extensions==1.0.0
+    # via typing-inspect
 nbclient==0.10.0
     # via nbconvert
 nbconvert==7.16.4
@@ -427,7 +442,7 @@ nest-asyncio==1.6.0
     # via ipykernel
 networkx==3.3
     # via torch
-notebook==7.2.1
+notebook==7.2.2
     # via jupyter
 notebook-shim==0.2.4
     # via
@@ -448,7 +463,6 @@ numpy==1.26.4
     #   pyautogen
     #   scikit-learn
     #   scipy
-    #   sentence-transformers
     #   shapely
     #   transformers
     #   yfinance
@@ -458,15 +472,15 @@ oauthlib==3.2.2
     #   requests-oauthlib
 ollama==0.3.3
     # via -r ./requirements/requirements.in
-onnxruntime==1.18.1
+onnxruntime==1.19.2
     # via chromadb
-openai==1.35.10
+openai==1.50.2
     # via
     #   -r ./requirements/requirements.in
     #   autogen
     #   langchain-openai
     #   pyautogen
-opentelemetry-api==1.25.0
+opentelemetry-api==1.27.0
     # via
     #   chromadb
     #   opentelemetry-exporter-otlp-proto-grpc
@@ -475,39 +489,38 @@ opentelemetry-api==1.25.0
     #   opentelemetry-instrumentation-fastapi
     #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
-opentelemetry-exporter-otlp-proto-common==1.25.0
+opentelemetry-exporter-otlp-proto-common==1.27.0
     # via opentelemetry-exporter-otlp-proto-grpc
-opentelemetry-exporter-otlp-proto-grpc==1.25.0
+opentelemetry-exporter-otlp-proto-grpc==1.27.0
     # via chromadb
-opentelemetry-instrumentation==0.46b0
+opentelemetry-instrumentation==0.48b0
     # via
     #   opentelemetry-instrumentation-asgi
     #   opentelemetry-instrumentation-fastapi
-opentelemetry-instrumentation-asgi==0.46b0
+opentelemetry-instrumentation-asgi==0.48b0
     # via opentelemetry-instrumentation-fastapi
-opentelemetry-instrumentation-fastapi==0.46b0
+opentelemetry-instrumentation-fastapi==0.48b0
     # via chromadb
-opentelemetry-proto==1.25.0
+opentelemetry-proto==1.27.0
     # via
     #   opentelemetry-exporter-otlp-proto-common
     #   opentelemetry-exporter-otlp-proto-grpc
-opentelemetry-sdk==1.25.0
+opentelemetry-sdk==1.27.0
     # via
     #   chromadb
     #   opentelemetry-exporter-otlp-proto-grpc
-opentelemetry-semantic-conventions==0.46b0
+opentelemetry-semantic-conventions==0.48b0
     # via
     #   opentelemetry-instrumentation-asgi
     #   opentelemetry-instrumentation-fastapi
     #   opentelemetry-sdk
-opentelemetry-util-http==0.46b0
+opentelemetry-util-http==0.48b0
     # via
     #   opentelemetry-instrumentation-asgi
     #   opentelemetry-instrumentation-fastapi
-orjson==3.10.6
+orjson==3.10.7
     # via
     #   chromadb
-    #   fastapi
     #   langsmith
 overrides==7.7.0
     # via
@@ -529,10 +542,8 @@ packaging==24.1
     #   nbconvert
     #   onnxruntime
     #   pyautogen
-    #   qtconsole
-    #   qtpy
     #   transformers
-pandas==2.2.2
+pandas==2.2.3
     # via
     #   -r ./requirements/requirements.in
     #   yfinance
@@ -549,15 +560,15 @@ pillow==10.4.0
     #   matplotlib
     #   pyautogen
     #   sentence-transformers
-platformdirs==4.2.2
+platformdirs==4.3.6
     # via
     #   jupyter-core
     #   yfinance
-posthog==3.5.0
+posthog==3.6.6
     # via chromadb
-prometheus-client==0.20.0
+prometheus-client==0.21.0
     # via jupyter-server
-prompt-toolkit==3.0.47
+prompt-toolkit==3.0.48
     # via
     #   ipython
     #   jupyter-console
@@ -567,7 +578,7 @@ proto-plus==1.24.0
     #   google-api-core
     #   google-cloud-aiplatform
     #   google-cloud-resource-manager
-protobuf==4.25.3
+protobuf==4.25.5
     # via
     #   google-ai-generativelanguage
     #   google-api-core
@@ -582,27 +593,28 @@ protobuf==4.25.3
     #   proto-plus
 psutil==6.0.0
     # via ipykernel
-psycopg==3.2.1
+psycopg==3.2.3
     # via autogenstudio
 ptyprocess==0.7.0
     # via
     #   pexpect
     #   terminado
-pure-eval==0.2.2
+pure-eval==0.2.3
     # via stack-data
-pyasn1==0.6.0
+pyasn1==0.6.1
     # via
     #   pyasn1-modules
     #   rsa
-pyasn1-modules==0.4.0
+pyasn1-modules==0.4.1
     # via google-auth
-pyautogen[gemini]==0.2.31
+pyautogen[anthropic,gemini,mistral]==0.3.0
     # via autogenstudio
 pycparser==2.22
     # via cffi
-pydantic==2.8.2
+pydantic==2.9.2
     # via
     #   -r ./requirements/requirements.in
+    #   anthropic
     #   autogen
     #   autogenstudio
     #   chromadb
@@ -612,35 +624,36 @@ pydantic==2.8.2
     #   langchain
     #   langchain-core
     #   langsmith
+    #   mistralai
     #   openai
     #   pyautogen
     #   sqlmodel
-pydantic-core==2.20.1
+pydantic-core==2.23.4
     # via pydantic
 pygments==2.18.0
     # via
     #   ipython
     #   jupyter-console
     #   nbconvert
-    #   qtconsole
     #   rich
-pyparsing==3.1.2
+pyparsing==3.1.4
     # via
     #   httplib2
     #   matplotlib
-pypdf==4.2.0
+pypdf==5.0.1
     # via -r ./requirements/requirements.in
 pypika==0.48.9
     # via chromadb
-pyproject-hooks==1.1.0
+pyproject-hooks==1.2.0
     # via build
-python-dateutil==2.9.0.post0
+python-dateutil==2.8.2
     # via
     #   arrow
     #   google-cloud-bigquery
     #   jupyter-client
     #   kubernetes
     #   matplotlib
+    #   mistralai
     #   pandas
     #   posthog
 python-dotenv==1.0.1
@@ -651,13 +664,11 @@ python-dotenv==1.0.1
     #   uvicorn
 python-json-logger==2.0.7
     # via jupyter-events
-python-multipart==0.0.9
-    # via fastapi
-pytz==2024.1
+pytz==2024.2
     # via
     #   pandas
     #   yfinance
-pyyaml==6.0.1
+pyyaml==6.0.2
     # via
     #   chromadb
     #   huggingface-hub
@@ -667,30 +678,24 @@ pyyaml==6.0.1
     #   langchain-core
     #   transformers
     #   uvicorn
-pyzmq==26.0.3
+pyzmq==26.2.0
     # via
     #   ipykernel
     #   jupyter-client
     #   jupyter-console
     #   jupyter-server
-    #   qtconsole
-qtconsole==5.5.2
-    # via jupyter
-qtpy==2.4.1
-    # via qtconsole
 referencing==0.35.1
     # via
     #   jsonschema
     #   jsonschema-specifications
     #   jupyter-events
-regex==2024.5.15
+regex==2024.9.11
     # via
     #   tiktoken
     #   transformers
 requests==2.32.3
     # via
     #   arxiv
-    #   chromadb
     #   docker
     #   google-api-core
     #   google-cloud-bigquery
@@ -715,29 +720,31 @@ rfc3986-validator==0.1.1
     # via
     #   jsonschema
     #   jupyter-events
-rich==13.7.1
-    # via typer
-rpds-py==0.18.1
+rich==13.9.1
+    # via
+    #   chromadb
+    #   typer
+rpds-py==0.20.0
     # via
     #   jsonschema
     #   referencing
 rsa==4.9
     # via google-auth
-safetensors==0.4.3
+safetensors==0.4.5
     # via transformers
-scikit-learn==1.5.1
+scikit-learn==1.5.2
     # via sentence-transformers
-scipy==1.14.0
+scipy==1.14.1
     # via
     #   scikit-learn
     #   sentence-transformers
 send2trash==1.8.3
     # via jupyter-server
-sentence-transformers==3.0.1
+sentence-transformers==3.1.1
     # via -r ./requirements/requirements.in
 sgmllib3k==1.0.0
     # via feedparser
-shapely==2.0.4
+shapely==2.0.6
     # via google-cloud-aiplatform
 shellingham==1.5.4
     # via typer
@@ -753,27 +760,28 @@ six==1.16.0
     #   rfc3339-validator
 sniffio==1.3.1
     # via
+    #   anthropic
     #   anyio
     #   httpx
     #   openai
-soupsieve==2.5
+soupsieve==2.6
     # via beautifulsoup4
-sqlalchemy==2.0.31
+sqlalchemy==2.0.35
     # via
     #   alembic
     #   langchain
     #   sqlmodel
-sqlmodel==0.0.19
+sqlmodel==0.0.22
     # via autogenstudio
 stack-data==0.6.3
     # via ipython
-starlette==0.37.2
+starlette==0.38.6
     # via fastapi
-sympy==1.12.1
+sympy==1.13.3
     # via
     #   onnxruntime
     #   torch
-tenacity==8.4.2
+tenacity==8.5.0
     # via
     #   chromadb
     #   langchain
@@ -795,11 +803,12 @@ tiktoken==0.7.0
     #   pyautogen
 tinycss2==1.3.0
     # via nbconvert
-tokenizers==0.19.1
+tokenizers==0.20.0
     # via
+    #   anthropic
     #   chromadb
     #   transformers
-torch==2.3.1
+torch==2.4.1
     # via sentence-transformers
 tornado==6.4.1
     # via
@@ -809,7 +818,7 @@ tornado==6.4.1
     #   jupyterlab
     #   notebook
     #   terminado
-tqdm==4.66.4
+tqdm==4.66.5
     # via
     #   chromadb
     #   google-generativeai
@@ -833,24 +842,24 @@ traitlets==5.14.3
     #   nbclient
     #   nbconvert
     #   nbformat
-    #   qtconsole
-transformers==4.42.3
+transformers==4.45.1
     # via sentence-transformers
-typer==0.12.3
+typer==0.12.5
     # via
     #   autogenstudio
     #   chromadb
-    #   fastapi-cli
-types-python-dateutil==2.9.0.20240316
+types-python-dateutil==2.9.0.20240906
     # via arrow
 typing-extensions==4.12.2
     # via
     #   alembic
+    #   anthropic
     #   chromadb
     #   fastapi
     #   google-generativeai
     #   huggingface-hub
     #   ipython
+    #   langchain-core
     #   openai
     #   opentelemetry-sdk
     #   psycopg
@@ -859,31 +868,31 @@ typing-extensions==4.12.2
     #   sqlalchemy
     #   torch
     #   typer
-tzdata==2024.1
+    #   typing-inspect
+typing-inspect==0.9.0
+    # via mistralai
+tzdata==2024.2
     # via pandas
-ujson==5.10.0
-    # via fastapi
 uri-template==1.3.0
     # via jsonschema
 uritemplate==4.1.1
     # via google-api-python-client
-urllib3==2.2.2
+urllib3==2.2.3
     # via
     #   docker
     #   kubernetes
     #   requests
-uvicorn[standard]==0.30.1
+uvicorn[standard]==0.31.0
     # via
     #   autogenstudio
     #   chromadb
-    #   fastapi
-uvloop==0.19.0
+uvloop==0.20.0
     # via uvicorn
-watchfiles==0.22.0
+watchfiles==0.24.0
     # via uvicorn
 wcwidth==0.2.13
     # via prompt-toolkit
-webcolors==24.6.0
+webcolors==24.8.0
     # via jsonschema
 webencodings==0.5.1
     # via
@@ -894,21 +903,21 @@ websocket-client==1.8.0
     # via
     #   jupyter-server
     #   kubernetes
-websockets==12.0
+websockets==13.1
     # via
     #   autogenstudio
     #   uvicorn
-widgetsnbextension==4.0.11
+widgetsnbextension==4.0.13
     # via ipywidgets
 wrapt==1.16.0
     # via
     #   deprecated
     #   opentelemetry-instrumentation
-yarl==1.9.4
+yarl==1.13.1
     # via aiohttp
-yfinance==0.2.40
+yfinance==0.2.44
     # via -r ./requirements/requirements.in
-zipp==3.19.2
+zipp==3.20.2
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
