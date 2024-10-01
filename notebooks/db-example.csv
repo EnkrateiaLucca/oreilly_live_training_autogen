@@ -1,0 +1,11 @@
+code,description,expiration_date,is_active
+SAVE10,10% off purchase,2024-12-31,true
+FREESHIP,Free shipping,2024-06-30,false
+WELCOME15,15% off first order,2025-01-01,true
+BLACKFRIDAY20,20% off Black Friday sale,2024-11-29,true
+SUMMER5,$5 off summer sale,2024-08-31,false
+NEWYEAR30,30% off New Year's sale,2025-01-02,true
+CYBERDEAL,25% off Cyber Monday,2024-12-02,true
+SPRINGFREE,Free gift with purchase,2024-04-30,true
+VIP50,50% off for VIP members,2024-12-31,false
+HOLIDAY15,15% off holiday sale,2024-12-25,true
