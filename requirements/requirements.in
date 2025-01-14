@@ -4,3 +4,4 @@ autogen-ext[openai]
 matplotlib
 numpy
 pandas
+langchain-experimental
