@@ -12,7 +12,8 @@ conda-create:
 env-setup: conda-create
 	$(CONDA_ACTIVATE) $(ENV_NAME) && \
 	pip install --upgrade pip && \
-	pip install pip-tools setuptools ipykernel
+	pip install uv && \
+	uv pip install pip-tools setuptools ipykernel
 
 repo-setup:
 	mkdir -p requirements
@@ -24,12 +25,12 @@ notebook-setup:
 
 env-update:
 	$(CONDA_ACTIVATE) $(ENV_NAME) && \
-	pip-compile ./requirements/requirements.in -o ./requirements/requirements.txt && \
-	pip-sync ./requirements/requirements.txt
+	uv pip compile ./requirements/requirements.in -o ./requirements/requirements.txt && \
+	uv pip sync ./requirements/requirements.txt
 
 clean:
 	conda env remove -n $(ENV_NAME)
 
 freeze:
 	$(CONDA_ACTIVATE) $(ENV_NAME) && \
-	pip freeze > requirements/requirements.txt
+	uv pip freeze > requirements/requirements.txt
