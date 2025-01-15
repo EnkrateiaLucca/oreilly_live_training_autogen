@@ -5,3 +5,5 @@ matplotlib
 numpy
 pandas
 langchain-experimental
+beautifulsoup4
+python-dotenv

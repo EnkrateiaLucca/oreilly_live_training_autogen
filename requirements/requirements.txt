@@ -32,6 +32,8 @@ autogen-core==0.4.1
     #   autogen-ext
 autogen-ext==0.4.1
     # via -r ./requirements/requirements.in
+beautifulsoup4==4.12.3
+    # via -r ./requirements/requirements.in
 certifi==2024.12.14
     # via
     #   httpcore
@@ -206,7 +208,9 @@ python-dateutil==2.9.0.post0
     #   matplotlib
     #   pandas
 python-dotenv==1.0.1
-    # via pydantic-settings
+    # via
+    #   -r ./requirements/requirements.in
+    #   pydantic-settings
 pytz==2024.2
     # via pandas
 pyyaml==6.0.2
@@ -235,6 +239,8 @@ sniffio==1.3.1
     # via
     #   anyio
     #   openai
+soupsieve==2.6
+    # via beautifulsoup4
 sqlalchemy==2.0.37
     # via
     #   langchain
