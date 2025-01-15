@@ -33,7 +33,9 @@ autogen-core==0.4.1
 autogen-ext==0.4.1
     # via -r ./requirements/requirements.in
 beautifulsoup4==4.12.3
-    # via -r ./requirements/requirements.in
+    # via
+    #   -r ./requirements/requirements.in
+    #   yfinance
 certifi==2024.12.14
     # via
     #   httpcore
@@ -61,12 +63,16 @@ executing==2.1.0
     # via stack-data
 fonttools==4.55.3
     # via matplotlib
+frozendict==2.4.6
+    # via yfinance
 frozenlist==1.5.0
     # via
     #   aiohttp
     #   aiosignal
 h11==0.14.0
     # via httpcore
+html5lib==1.1
+    # via yfinance
 httpcore==1.0.7
     # via httpx
 httpx==0.28.1
@@ -124,6 +130,8 @@ langsmith==0.2.10
     #   langchain
     #   langchain-community
     #   langchain-core
+lxml==5.3.0
+    # via yfinance
 marshmallow==3.25.1
     # via dataclasses-json
 matplotlib==3.10.0
@@ -136,6 +144,8 @@ multidict==6.1.0
     # via
     #   aiohttp
     #   yarl
+multitasking==0.0.11
+    # via yfinance
 mypy-extensions==1.0.0
     # via typing-inspect
 nest-asyncio==1.6.0
@@ -148,6 +158,7 @@ numpy==1.26.4
     #   langchain-community
     #   matplotlib
     #   pandas
+    #   yfinance
 openai==1.59.7
     # via autogen-ext
 opentelemetry-api==1.29.0
@@ -161,9 +172,13 @@ packaging==24.2
     #   marshmallow
     #   matplotlib
 pandas==2.2.3
-    # via -r ./requirements/requirements.in
+    # via
+    #   -r ./requirements/requirements.in
+    #   yfinance
 parso==0.8.4
     # via jedi
+peewee==3.17.8
+    # via yfinance
 pexpect==4.9.0
     # via ipython
 pillow==11.1.0
@@ -171,7 +186,9 @@ pillow==11.1.0
     #   autogen-core
     #   matplotlib
 platformdirs==4.3.6
-    # via jupyter-core
+    # via
+    #   jupyter-core
+    #   yfinance
 prompt-toolkit==3.0.48
     # via ipython
 propcache==0.2.1
@@ -212,7 +229,9 @@ python-dotenv==1.0.1
     #   -r ./requirements/requirements.in
     #   pydantic-settings
 pytz==2024.2
-    # via pandas
+    # via
+    #   pandas
+    #   yfinance
 pyyaml==6.0.2
     # via
     #   langchain
@@ -231,10 +250,13 @@ requests==2.32.3
     #   langsmith
     #   requests-toolbelt
     #   tiktoken
+    #   yfinance
 requests-toolbelt==1.0.0
     # via langsmith
 six==1.17.0
-    # via python-dateutil
+    # via
+    #   html5lib
+    #   python-dateutil
 sniffio==1.3.1
     # via
     #   anyio
@@ -287,9 +309,13 @@ urllib3==2.3.0
     # via requests
 wcwidth==0.2.13
     # via prompt-toolkit
+webencodings==0.5.1
+    # via html5lib
 wrapt==1.17.2
     # via deprecated
 yarl==1.18.3
     # via aiohttp
+yfinance==0.2.51
+    # via -r ./requirements/requirements.in
 zipp==3.21.0
     # via importlib-metadata
