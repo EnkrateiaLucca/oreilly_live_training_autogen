@@ -1,10 +1,15 @@
 ipykernel
 autogen-agentchat
+chromadb
+opentelemetry-sdk
+opentelemetry-exporter-otlp-proto-grpc
 autogen-ext[openai]
 matplotlib
 numpy
 pandas
-langchain-experimental
 beautifulsoup4
 python-dotenv
 yfinance
+mcp
+autogenstudio
+aiohttp
