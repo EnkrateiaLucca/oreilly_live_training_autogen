@@ -61,42 +61,42 @@ deactivate
 
 Here are the notebooks available in the `notebooks/` folder:
 
-1. [Autogen Demo: Building Our First Agent](notebooks/1.0-ls-autogen-demo-building-our-first-agent.ipynb)
+1. [Autogen Basics](notebooks/1.0-autogen-basics.ipynb)
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/1.0-ls-autogen-demo-building-our-first-agent.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/1.0-autogen-basics.ipynb)
 
-2. [Autogen Demo: Student Assistant Expert](notebooks/2.0-ls-autogen-demo-student-assistant-expert.ipynb)
+2. [Code Concepts](notebooks/2.0-code-concepts.ipynb)
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/2.0-ls-autogen-demo-student-assistant-expert.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/2.0-code-concepts.ipynb)
 
-3. [Autogen Demo: Retrieval Augmented Chat](notebooks/3.0-ls-autogen-demo-retrieval-augmented-chat.ipynb)
+3. [Autogen Messages](notebooks/3.0-autogen-messages.ipynb)
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/3.0-ls-autogen-demo-retrieval-augmented-chat.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/3.0-autogen-messages.ipynb)
 
-4. [Autogen Demo: Writer Commander Safeguard Multi-Agent Coding](notebooks/4.0-ls-autogen-demo-writer-commander-safeguard-multi-agent-coding.ipynb)
+4. [Data Analysis Conversation Example](notebooks/3.1-data-analysis-conversation-example.ipynb)
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/4.0-ls-autogen-demo-writer-commander-safeguard-multi-agent-coding.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/3.1-data-analysis-conversation-example.ipynb)
 
-5. [Autogen Demo: Dynamic Group Chat](notebooks/5.0-ls-autogen-demo-dynamic-group-chat.ipynb)
+5. [Tools](notebooks/4.0-tools.ipynb)
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/5.0-ls-autogen-demo-dynamic-group-chat.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/4.0-tools.ipynb)
 
-6. [Autogen Demo: Agent Builder Recipe](notebooks/6.0-ls-autogen-demo-agent-builder-recipe.ipynb)
+6. [Autogen Teams](notebooks/5.0-autogen-teams.ipynb)
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/6.0-ls-autogen-demo-agent-builder-recipe.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/5.0-autogen-teams.ipynb)
 
-7. [Autogen Demo: Research Assistant](notebooks/7.0-ls-autogen-demo-research-assistant.ipynb)
+7. [Autogen Teams Selector GroupChat](notebooks/5.1-autogen-teams-selector-groupchat.ipynb)
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/7.0-ls-autogen-demo-research-assistant.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/5.1-autogen-teams-selector-groupchat.ipynb)
 
-8. [Autogen Demo: Personal Assistant](notebooks/8.0-ls-autogen-demo-personal-assistant.ipynb)
+8. [Multi-Agent with Agents as Tools](notebooks/5.2-multi-agent-with-agents-as-tools.ipynb)
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/8.0-ls-autogen-demo-personal-assistant.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/5.2-multi-agent-with-agents-as-tools.ipynb)
 
-9. [Building a Autogen Agent: Desktop Tasks](notebooks/building-a-autogen-agent-desktop-tasks.ipynb)
+9. [Company Research Agent](notebooks/6.0-company-research-agent.ipynb)
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/building-a-autogen-agent-desktop-tasks.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/6.0-company-research-agent.ipynb)
 
-10. [Demo: Autogen Function Calling](notebooks/demo-autogen-function-calling.ipynb)
+10. [RSS Feed Agent](notebooks/6.1-rss-feed-agent.ipynb)
 
-    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/demo-autogen-function-calling.ipynb)
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly_live_training_autogen/blob/main/notebooks/6.1-rss-feed-agent.ipynb)
