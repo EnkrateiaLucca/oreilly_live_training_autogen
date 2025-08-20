@@ -1,0 +1,21 @@
+'Modern LLM agents are goal-directed systems built around large language models that can plan and act, 
+not just chat. They interact with external tools, services, and environments to achieve outcomes, 
+iterating through a loop of observing context, planning next steps, taking actions, and using the 
+results to refine their approach. Architecturally, they pair an LLM with a function-calling layer for 
+tools and APIs, a memory or state store, and policies that constrain behavior. This enables multi-step 
+workflows such as analyzing datasets, booking travel, triaging support tickets, or orchestrating business 
+processes end to end.\n\nTo stay grounded, agents often augment the model with retrieval so it can consult 
+documents, knowledge bases, or the web before answering. Tool use spans calling APIs and databases, browsing, 
+and writing or executing code in a sandbox to transform data or validate results. Many implementations 
+decompose tasks into subgoals, track intermediate state, and emit structured outputs for downstream systems. 
+Orchestrators can coordinate multiple specialized agents (for example, researcher, coder, tester) and hand 
+off work, while guardrails enforce schemas, permissions, and organizational policies. Integration is 
+typically done through structured function calls, JSON schemas, and event-driven workflows.\n\nDespite 
+their versatility, LLM agents have limits: they can hallucinate, mishandle edge cases, and struggle with 
+very long-horizon plans or ambiguous goals. Practical deployments rely on safeguards such as permissioning, 
+human-in-the-loop review, sandboxed tool execution, rate limits, and continuous evaluation of task success 
+and safety. Cost and latency are important, so designers cache results, reuse context, and adapt model size 
+to task complexity. Good applications align with agent strengths—information synthesis, routine workflow 
+automation, data wrangling, and software assistance—while avoiding high-stakes decisions without oversight. 
+Looking ahead, better memory, more reliable planning, and tighter integration with enterprise systems and 
+hardware will make agents more capable and trustworthy.'

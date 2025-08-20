@@ -13,3 +13,4 @@ yfinance
 mcp
 autogenstudio
 aiohttp
+numpy
