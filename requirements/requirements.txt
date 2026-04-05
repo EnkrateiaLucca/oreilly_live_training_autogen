@@ -433,7 +433,7 @@ tiktoken==0.11.0
     # via autogen-ext
 tokenizers==0.21.4
     # via chromadb
-tornado==6.5.2
+tornado==6.5.5
     # via
     #   ipykernel
     #   jupyter-client
